@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-include_once 'config.php';
+include_once '../config.php';
 $query = $pdo -> prepare('SELECT * FROM blog_posts ORDER BY id DESC');
 $query -> execute();
 
@@ -15,7 +15,7 @@ $blogPosts = $query -> fetchAll(PDO::FETCH_ASSOC);
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Admin Panel</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="master.css">
   </head>
@@ -26,20 +26,9 @@ $blogPosts = $query -> fetchAll(PDO::FETCH_ASSOC);
           <h1>Blog Title</h1>
           <div class="row">
             <div class="col-md-8">
-              <?php
-              foreach ($blogPosts as $blogPost) {
-                echo '<div class="blog-post">';
-                echo '<h2>'.$blogPost['title'].'</h2>';
-                echo '<p>Marzo 2, 2018, <a href="#">Sebas</a></p>';
-                echo '<div class="blog-post-image">';
-                echo '<img src="img/artikel7.jpg" width="700" height="300"alt="">';
-                echo '</div>';
-                echo '<div class="blog-post-content">'.$blogPost['content'].'</div>';
-                echo '</div>';
-
-              }
-
-               ?>
+              <ul>
+                <li><a href="posts.php">Administrar Posts</a></li>
+              </ul>
             </div>
             <div class="col-md-4">
               sidebar
